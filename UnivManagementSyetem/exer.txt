@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CAHPTER5_Exercise
+{
+    class Book
+    {
+        private string name;                // 책 이름
+        private string publish_date;        // 출판일
+        private string author;              // 저자
+        private string publisher;           // 펴낸이
+        private string company;             // 펴낸곳
+        private string master_editor;       // 책입편집
+        private string plan;                // 기획
+        private string editor;              // 편집
+        private string design;              // 디자인
+
+        public Book() { }
+            
+
+
+        public Book(string name, string publish_date, string autor, string publisher, string company, string maseter_editor, string plan, string editor, string design)
+        {
+            this.name = name;
+            this.publish_date = publish_date;
+            this.author = author;
+            this.publisher = publisher;
+            this.company = company;
+            this.master_editor = master_editor;
+            this.plan = plan;
+            this.editor = editor;
+            this.design = design;
+        }
+
+        
+
+        public string Name { get;
+            set; }
+        public string Publish_date { get; set; }
+        public string Author { get; set; }
+        public string Publisher { get; set; }
+        public string Company { get; set; }
+        public string Master_editor { get; set; }
+        public string Plan { get; set; }
+        public string Editor { get; set; }
+        public string Design { get; set; }
+    }
+
+    class NameTag
+    {
+        string[] nameTag = new string[] { "정예인", "아이유", "은하", "슬기", "아이린", "웬디", "조이" };
+        string[] nameTagBook = new string[] { "그 많은 싱하는 오디갓징", "내 치즈의 위치", "내 사랑 사탕", "로미오와 에드윌", "야 나두 집가고싶어" };
+       
+        Random rand = new Random();
+
+        public NameTag() { }
+        
+        public string GetName()
+        {
+            int num = rand.Next(0, 6);
+            return nameTag[num];
+        }
+
+        public string GetBookName()
+        {
+            int num = rand.Next(0, 4);
+            return nameTagBook[num];
+        }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            NameTag ntag = new NameTag();
+
+            string bookname = "book";
+            for (int i = 0; i < 5; i++)
+            {
+                Book i = new Book()
+                {
+                    Author = ntag.GetName(),
+                    Company = ntag.GetName(),
+                    Design = ntag.GetName(),
+                    Editor = ntag.GetName(),
+                    Master_editor = ntag.GetName(),
+                    Name = ntag.GetBookName(),
+                    Plan = ntag.GetName(),
+                    Publisher = ntag.GetName(),
+                    Publish_date = "2019-03-18"
+                };
+            }
+           
+        }
+    }
+}
